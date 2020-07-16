@@ -18,7 +18,7 @@ from TTS.utils.generic_utils import (count_parameters, create_experiment_folder,
                                      get_git_branch, set_init_dict,
                                      setup_model, KeepAverage, check_config)
 from TTS.utils.io import (save_best_model, save_checkpoint,
-                          load_config, copy_config_file)
+                          load_config, copy_config_file, load_config_patched)
 from TTS.utils.training import (NoamLR, check_update, adam_weight_decay,
                                 gradual_training_scheduler, set_weight_decay,
                                 setup_torch_training_env)
@@ -32,7 +32,6 @@ from TTS.utils.visual import plot_alignment, plot_spectrogram
 from TTS.datasets.preprocess import load_meta_data
 from TTS.utils.radam import RAdam
 from TTS.utils.measures import alignment_diagonal_score
-from TTS.utils.io import load_config_patched # patch
 
 
 use_cuda, num_gpus = setup_torch_training_env(True, False)
