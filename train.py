@@ -32,6 +32,7 @@ from TTS.utils.visual import plot_alignment, plot_spectrogram
 from TTS.datasets.preprocess import load_meta_data
 from TTS.utils.radam import RAdam
 from TTS.utils.measures import alignment_diagonal_score
+from TTS.utils.io import load_config_patched # patch
 
 
 use_cuda, num_gpus = setup_torch_training_env(True, False)
