@@ -15,8 +15,8 @@ def load_config(config_path):
     config = AttrDict()
     with open(config_path, "r") as f:
         input_str = f.read()
-    input_str = re.sub(r'\\\n', '', input_str)
-    input_str = re.sub(r'//.*\n', '\n', input_str)
+    #input_str = re.sub(r'\\\n', '', input_str)
+    #input_str = re.sub(r'//.*\n', '\n', input_str)
     data = json.loads(input_str)
     config.update(data)
     return config
