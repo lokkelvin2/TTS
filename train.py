@@ -598,7 +598,11 @@ if __name__ == '__main__':
         print(f" > Training continues for {args.restore_path}")
 
     # setup output paths and read configs
-    c = load_config(args.config_path)
+    # patch for ddc_colab continue training
+    if args.continue_path != '':
+        c = load_config_patched(args.config_path)
+    else:
+        c = load_config(args.config_path)
     check_config(c)
     _ = os.path.dirname(os.path.realpath(__file__))
 
