@@ -18,7 +18,7 @@ from TTS.utils.generic_utils import (count_parameters, create_experiment_folder,
                                      get_git_branch, set_init_dict,
                                      setup_model, KeepAverage, check_config)
 from TTS.utils.io import (save_best_model, save_checkpoint,
-                          load_config, copy_config_file, load_config_patched)
+                          load_config, copy_config_file)
 from TTS.utils.training import (NoamLR, check_update, adam_weight_decay,
                                 gradual_training_scheduler, set_weight_decay,
                                 setup_torch_training_env)
@@ -599,10 +599,7 @@ if __name__ == '__main__':
 
     # setup output paths and read configs
     # patch for ddc_colab continue training
-    if args.continue_path != '':
-        c = load_config_patched(args.config_path)
-    else:
-        c = load_config(args.config_path)
+    c = load_config(args.config_path)
     check_config(c)
     _ = os.path.dirname(os.path.realpath(__file__))
 
