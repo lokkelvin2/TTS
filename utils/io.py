@@ -21,6 +21,16 @@ def load_config(config_path):
     config.update(data)
     return config
 
+def load_config_patched(config_path):
+    config = AttrDict()
+    with open(config_path, "r") as f:
+        input_str = f.read()
+    # remove for colab - continue trainings
+    #input_str = re.sub(r'\\\n', '', input_str)
+    #input_str = re.sub(r'//.*\n', '\n', input_str)
+    data = json.loads(input_str)
+    config.update(data)
+    return config
 
 def copy_config_file(config_file, out_path, new_fields):
     config_lines = open(config_file, "r").readlines()
